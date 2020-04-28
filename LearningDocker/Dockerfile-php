@@ -1,0 +1,14 @@
+FROM centos
+
+RUN yum -y install httpd php php-mysql unzip mod_ssl openssl
+WORKDIR /var/www/html
+ADD https://github.com/BlackrockDigital/startbootstrap-agency/archive/master.zip ./master.zip
+RUN unzip master.zip && mv startbootstrap-agency-master/* .
+
+RUN echo "<?php phpinfo(); ?>" > /var/www/html/test.php
+
+COPY docker.key /docker.key
+COPY docker.crt /docker.crt
+
+COPY ssl.conf /etc/httpd/conf.d/default.conf
+CMD apachectl -DFOREGROUND

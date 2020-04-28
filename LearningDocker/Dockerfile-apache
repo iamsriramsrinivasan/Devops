@@ -1,0 +1,16 @@
+FROM centos
+ARG user=application
+RUN yum -y install httpd
+RUN yum -y install unzip
+ENV HTML beginner-html-site-styled
+WORKDIR /var/www/html
+ADD https://github.com/mdn/$HTML/archive/gh-pages.zip ./gh-pages.zip
+RUN unzip gh-pages.zip &&  mv $HTML-gh-pages/* .
+RUN useradd $user && chown $user:$user /var/www/html -R
+USER $user
+RUN rm -rf gh-pages.zip $HTML-gh-pages/
+USER root
+CMD apachectl -DFOREGROUND
+
+
+
