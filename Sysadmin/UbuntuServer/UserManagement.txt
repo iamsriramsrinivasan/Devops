@@ -1,0 +1,17 @@
+How to create an user in Ubuntu Server 20.04
+
+1. Create an User
+
+adduser <username>
+
+2. Give sudo Privileges
+
+usermod -aG sudo <username>
+
+3. Deleting an user
+
+deluser <username>
+
+4. Delete user including home directory
+
+deluser --remove-home <username>

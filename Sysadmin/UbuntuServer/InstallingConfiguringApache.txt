@@ -1,0 +1,47 @@
+Installing & Configuring Apache in Ubuntu Server 20.4
+
+1. Install
+
+sudo apt install apache2
+
+2. Adjust the firewall
+
+ufw app list
+
+ufw allow 'Apache' // enables apache to server using port 80
+
+ufw status
+
+3. Check Apache Status
+
+systemctl status apache2
+
+4. Check whether apache is serving it's default page
+
+http://<your ip address>
+
+5. Managing Apache Service
+
+To Stop
+
+systemctl stop apache2
+
+To Start
+
+systemctl start apache2
+
+To Restart
+
+systemctl restart apache2
+
+To Reload
+
+systemctl reload apache2
+
+To Disable
+
+systemctl disable apache2
+
+To Enable
+
+systemctl enable apache2

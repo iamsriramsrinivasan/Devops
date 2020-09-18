@@ -1,0 +1,21 @@
+How to create an user in CentOS7
+
+1. Create an User
+
+adduser <username>
+
+2. Set Password
+
+passwd <username>
+
+2. Give sudo Privileges
+
+gpasswd -a <username> wheel
+
+3. Deleting an user
+
+userdel <username>
+
+4. Delete user including home directory
+
+deluser -r <username>
